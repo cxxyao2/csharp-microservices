@@ -8,5 +8,5 @@ namespace Play.Catalog.Service.Dtos
   public record CreateTimeDto([Required]string Name, string
   Description, [Range(0,10_000)] decimal Price);
 
-  public record UpdateItemDeto([Required]string Name, string Description, [Range(0, 10_000)] decimal Price);
+  public record UpdateItemDto([Required]string Name, string Description, [Range(0, 10_000)] decimal Price);
 }

@@ -62,7 +62,7 @@ namespace Play.Catalog.Service.Controllers
 
     // Put /items/{id}
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutAsync(Guid id, UpdateItemDeto updateItemDeto)
+    public async Task<IActionResult> PutAsync(Guid id, UpdateItemDto updateItemDto)
     {
       var existingItem = await itemsRepository.GetAsync(id);
 
@@ -71,9 +71,9 @@ namespace Play.Catalog.Service.Controllers
         return NotFound();
       }
 
-      existingItem.Name = updateItemDeto.Name;
-      existingItem.Description = updateItemDeto.Description;
-      existingItem.Price = updateItemDeto.Price;
+      existingItem.Name = updateItemDto.Name;
+      existingItem.Description = updateItemDto.Description;
+      existingItem.Price = updateItemDto.Price;
 
       await itemsRepository.UpdateAsync(existingItem);
 
