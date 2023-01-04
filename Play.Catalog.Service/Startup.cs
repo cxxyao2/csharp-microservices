@@ -15,8 +15,8 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Play.Catalog.Service.Entities;
-using Play.Catalog.Service.Repositories;
-using Play.Catalog.Service.Settings;
+using Play.Common.MongoDB;
+using Play.Common.Settings;
 
 namespace Play.Catalog.Service
 {
@@ -38,6 +38,7 @@ namespace Play.Catalog.Service
 
       services.AddMongo()
       .AddMongoRepository<Item>("items");
+
 
 
       services.AddControllers(options =>

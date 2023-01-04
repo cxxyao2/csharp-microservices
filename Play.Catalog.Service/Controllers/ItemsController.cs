@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
 using Play.Catalog.Service.Entities;
-using Play.Catalog.Service.Repositories;
+using Play.Common;
 using PLay.Catalog.Service;
 
 namespace Play.Catalog.Service.Controllers
@@ -18,6 +18,7 @@ namespace Play.Catalog.Service.Controllers
   {
 
     private readonly IRepository<Item> itemsRepository;
+    private static int requestCounter = 0;
 
     public ItemsController(IRepository<Item> itemsRepository)
     {
@@ -25,10 +26,27 @@ namespace Play.Catalog.Service.Controllers
     }
 
     [HttpGet]
-    public async Task<IEnumerable<ItemDto>> GetAsync()
+    public async Task<ActionResult<IEnumerable<ItemDto>>> GetAsync()
     {
+      requestCounter++;
+      Console.WriteLine($"Request {requestCounter}: Strating...");
+
+      if (requestCounter <= 2)
+      {
+        Console.WriteLine($"Request {requestCounter}: Delay...");
+        await Task.Delay(TimeSpan.FromSeconds(10));
+      }
+
+
+      if (requestCounter <= 4)
+      {
+        Console.WriteLine($"Request {requestCounter}: 500 (Internal Server Error)..");
+        return StatusCode(500);
+      }
+
       var items = (await itemsRepository.GetAllAsync()).Select(item => item.AsDto());
-      return items;
+      Console.WriteLine($"Request {requestCounter}: 200 (Ok).");
+      return Ok(items);
 
     }
 
