@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +16,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Play.Catalog.Service.Entities;
+using Play.Common.MassTransit;
 using Play.Common.MongoDB;
 using Play.Common.Settings;
 
@@ -37,8 +39,12 @@ namespace Play.Catalog.Service
       serviceSettings = Configuration.GetSection(nameof(ServiceSettings)).Get<ServiceSettings>();
 
       services.AddMongo()
-      .AddMongoRepository<Item>("items");
+      .AddMongoRepository<Item>("items")
+      .AddMassTransitWithRabbitMq();
 
+
+
+      // services.AddMassTransitHostedService();  // new version does not need this method
 
 
       services.AddControllers(options =>
@@ -49,6 +55,11 @@ namespace Play.Catalog.Service
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "Play.Catalog.Service", Version = "v1" });
       });
+    }
+
+    private object RabbitMQSetting()
+    {
+      throw new NotImplementedException();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
