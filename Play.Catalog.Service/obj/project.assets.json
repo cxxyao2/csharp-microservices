@@ -466,7 +466,7 @@
           }
         }
       },
-      "Play.Common/1.0.1": {
+      "Play.Common/1.0.2": {
         "type": "package",
         "dependencies": {
           "MassTransit.AspNetCore": "7.3.1",
@@ -1349,14 +1349,14 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
-    "Play.Common/1.0.1": {
-      "sha512": "V4A6GSZPCq6sWrPmWuQVKAPp6LkDCPrBSZPN6ys2O0k/eo+zA6v8I4lIJvcsNiCJtW18l/H95eoxMkJga2BtYg==",
+    "Play.Common/1.0.2": {
+      "sha512": "uj0r+d0mbDgN1ant8VVg/IH/rQZFSldoEw2IYSx38XUGTbmlR4WQs1WsaN9jqZKmMdGOqa7rIRCa7lG+Wfri3g==",
       "type": "package",
-      "path": "play.common/1.0.1",
+      "path": "play.common/1.0.2",
       "files": [
         ".nupkg.metadata",
         "lib/net5.0/Play.Common.dll",
-        "play.common.1.0.1.nupkg.sha512",
+        "play.common.1.0.2.nupkg.sha512",
         "play.common.nuspec"
       ]
     },
@@ -1927,7 +1927,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Play.Catalog.Contracts >= 1.0.0",
-      "Play.Common >= 1.0.1",
+      "Play.Common >= 1.0.2",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -1964,8 +1964,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\projects\\Play.Catalog\\src\\Play.Catalog.Contracts\\Play.Catalog.Contracts.csproj": {
-              "projectPath": "C:\\projects\\Play.Catalog\\src\\Play.Catalog.Contracts\\Play.Catalog.Contracts.csproj"
+            "c:\\projects\\Play.Catalog\\src\\Play.Catalog.Contracts\\Play.Catalog.Contracts.csproj": {
+              "projectPath": "c:\\projects\\Play.Catalog\\src\\Play.Catalog.Contracts\\Play.Catalog.Contracts.csproj"
             }
           }
         }
@@ -1982,7 +1982,7 @@
         "dependencies": {
           "Play.Common": {
             "target": "Package",
-            "version": "[1.0.1, )"
+            "version": "[1.0.2, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
